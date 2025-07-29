@@ -25,7 +25,7 @@ export function Home() {
       )}
 
       {!loading && availableHeroClasses.length > 0 && (
-        <section className={styles.heroClasses}>
+        <section className={styles.heroClasses} role='grid' aria-label='Hero Classes'>
           {Object.entries(heroClasses).map(([heroClass, imageUrl]) => (
             <Link to={`/${heroClass}`} key={heroClass}>
               <ClassButton
