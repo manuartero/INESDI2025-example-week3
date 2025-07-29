@@ -1,8 +1,16 @@
 import { fetchHeroClasses } from "../services/dnd-api";
 import { useState, useEffect } from "react";
 
+import type { HeroClassName } from "../domain";
+
+/**
+ * {'bard': 'image-url', 'cleric': 'image-url', ...}
+ */
+
 export function useHeroClasses() {
-  const [heroClasses, setHeroClasses] = useState<string[]>([]);
+  const [heroClasses, setHeroClasses] = useState<Record<HeroClassName, string>>(
+    {} as Record<HeroClassName, string>
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
